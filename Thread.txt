@@ -1,0 +1,17 @@
+// gcc fileName.c -lpthread
+#include<stdio.h>
+#include<pthread.h>
+
+void *MessageDisplay(void *u)
+{
+    print("hello world");
+}
+
+int main()
+{
+    pthread_t id;
+    pthread_create (&id, NULL, &MessageDisplay, NULL);
+    printf("Main Thread");
+    pthread_join(id, NULL);
+    return 0;
+}
